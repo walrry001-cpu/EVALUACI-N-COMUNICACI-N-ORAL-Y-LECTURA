@@ -1,15 +1,13 @@
-EVALUACIÓN DE LECTURA 5.° "E" · VERSIÓN 7 (todo en archivos sueltos, sin carpetas)
+EVALUACIÓN DE LECTURA 5.° "E" · VERSIÓN 8 (archivos sueltos, con diagnóstico de instalación)
 
-Sube TODOS estos archivos a la MISMA carpeta de GitHub (raíz del repositorio), sin carpetas:
-- Evaluacion_Lectura_5E_v7.html   (la aplicación: obligatorio)
-- index.html                      (redirige a la aplicación)
-- manifest.webmanifest, sw.js     (necesarios para "Instalar la app")
-- icono-192.png, icono-512.png, apple-touch-icon.png, favicon-64.png   (logo e iconos)
-- config.js                       (datos de la I.E.)
-- nomina.js                       (nómina: si el repositorio es PÚBLICO, no lo subas; pega la lista en la app)
-- Evaluacion_Comprension_5E_v7.pdf (opcional, para imprimir)
+Sube TODOS estos archivos a la MISMA carpeta (raíz) de GitHub, sin carpetas:
+Evaluacion_Lectura_5E_v8.html, index.html, manifest.json, sw.js, icono-192.png, icono-512.png,
+apple-touch-icon.png, favicon-64.png, config.js, nomina.js (ver aviso de privacidad), Evaluacion_Comprension_5E_v8.pdf (opcional).
 
-Para instalar en el celular (Chrome): abre el enlace .../Evaluacion_Lectura_5E_v7.html, menú ⋮ -> "Instalar app".
-Si antes habías agregado un acceso directo con la "G" gris, bórralo y vuelve a instalar desde cero.
-Si no aparece "Instalar": comprueba que abren sin error /manifest.webmanifest y /icono-192.png en el mismo enlace.
-Al actualizar: cambia ?v=7 por ?v=8 en el HTML y recarga con Ctrl+F5.
+Después:
+1. Espera 1-2 minutos y abre ESTE enlace: https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/Evaluacion_Lectura_5E_v8.html
+2. Abajo de la pantalla "Estudiante" debe decir "Versión 8". Si no lo dice, estás viendo una versión vieja.
+3. Pulsa "Revisar archivos": cada línea debe decir OK. Lo que diga NO ENCONTRADO es lo que falta subir.
+4. Borra el acceso directo viejo (la "G" gris) y en Chrome ⋮ -> "Instalar app".
+
+Si nomina.js está en un repositorio PÚBLICO, los nombres de los menores son visibles para cualquiera.

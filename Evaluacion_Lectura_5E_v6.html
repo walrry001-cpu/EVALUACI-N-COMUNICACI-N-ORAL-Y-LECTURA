@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Evaluación de lectura · 5.° E</title>
+<link rel="icon" href="icono/favicon-64.png?v=6"><link rel="apple-touch-icon" href="icono/apple-touch-icon.png?v=6">
+<link rel="manifest" href="manifest.webmanifest?v=6"><meta name="theme-color" content="#1f3a5f">
+<script src="config.js?v=6"></script>
+<script src="nomina.js?v=6"></script>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--tx:#1d2733;--mu:#5b6877;--pr:#1f3a5f;--ac:#2e7d5b;--bd:#d5dde7;--ok:#e3f4ea;--wa:#fff4d6;--er:#fde6e6}
+@media (prefers-color-scheme:dark){:root{--bg:#141a22;--card:#1d2631;--tx:#e8edf3;--mu:#9aa8b8;--pr:#8db4e8;--ac:#5cc596;--bd:#33414f;--ok:#1f3a2c;--wa:#3d3418;--er:#4a2424}}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--tx);line-height:1.5}
+header{background:var(--pr);color:#fff;padding:14px 20px}
+@media (prefers-color-scheme:dark){header{color:#0e1620}}
+header{display:flex;gap:12px;align-items:center}header img{height:54px;border-radius:50%;background:#fff}header h1{margin:0;font-size:1.2rem}header p{margin:3px 0 0;font-size:.85rem;opacity:.92}
+nav{display:flex;gap:6px;padding:10px 12px;overflow-x:auto;background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:5}
+nav button{border:1px solid var(--bd);background:var(--bg);color:var(--tx);padding:9px 13px;border-radius:8px;font-size:.92rem;cursor:pointer;white-space:nowrap}
+nav button.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+@media (prefers-color-scheme:dark){nav button.on{color:#0e1620}}
+main{max-width:1000px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px;margin-bottom:14px}
+.read p{font-size:1.18rem;line-height:1.85;margin:0 0 .9em}
+.read h2{text-align:center;margin-top:0;color:var(--pr)}
+label{display:block;font-weight:600;margin:8px 0 4px}
+input[type=text],textarea,select,input[type=number]{width:100%;padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+textarea{min-height:90px;resize:vertical}
+.tag{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:99px;background:var(--bg);border:1px solid var(--bd);color:var(--mu);margin-left:6px}
+.btn{background:var(--ac);color:#fff;border:0;padding:11px 18px;border-radius:8px;font-size:1rem;cursor:pointer;margin:4px 6px 4px 0}
+@media (prefers-color-scheme:dark){.btn{color:#0e1620}}
+.btn.sec{background:var(--bg);color:var(--tx);border:1px solid var(--bd)}
+.btn.warn{background:var(--er);color:var(--tx);border:1px solid var(--bd)}
+.clave{background:var(--ok);border-radius:8px;padding:10px;font-size:.92rem;margin:8px 0}
+.stu{background:var(--bg);border:1px dashed var(--bd);border-radius:8px;padding:10px;margin:8px 0;white-space:pre-wrap}
+.pts label{display:inline-flex;align-items:center;gap:6px;font-weight:500;margin:4px 14px 0 0}
+table{width:100%;border-collapse:collapse;font-size:.93rem;margin:8px 0}
+th,td{border:1px solid var(--bd);padding:7px 8px;text-align:left;vertical-align:top}th{background:var(--bg)}
+.big{font-size:1.9rem;font-weight:700;color:var(--pr)}
+.timer{font-size:3rem;font-weight:700;text-align:center;color:var(--pr);font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--mu)}
+.lvl{display:inline-block;padding:2px 12px;border-radius:99px;font-weight:700;border:1px solid var(--bd)}
+.AD,.A{background:var(--ok)}.B{background:var(--wa)}.C{background:var(--er)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.hide{display:none}
+.ponly{display:none}
+.rep h2,.rep h3{color:var(--pr);margin:.6em 0 .3em}
+.sign{display:flex;gap:40px;margin-top:46px}.sign div{flex:1;border-top:1px solid var(--tx);text-align:center;font-size:.85rem;padding-top:4px}
+.btn{display:inline-block}
+.calwrap{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:12px}
+@media(min-width:900px){.calwrap{grid-template-columns:1fr 1fr}.viewer{max-height:calc(100vh - 80px)!important}}
+.viewer{position:sticky;top:58px;z-index:3;align-self:start;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px;max-height:46vh;overflow:auto}
+.vbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.vbar .btn{margin:0;padding:7px 12px;font-size:.9rem}
+.imgbox canvas{display:block;max-width:none;border:1px solid var(--bd)}
+.steps{margin:6px 0 0;padding-left:20px}.steps li{margin:3px 0}
+.hoja{background:#fff;color:#000}
+.hoja h2{text-align:center;margin:.4em 0}
+.hoja p{font-size:12.5pt;line-height:1.7;margin:0 0 .7em}
+.hh{text-align:center;font-size:10pt;margin-bottom:6px}
+.hn{display:flex;gap:10px;align-items:flex-end;font-size:10.5pt;margin:6px 0 10px}
+.hn span{border-bottom:1px solid #000;flex:1;min-height:1.4em;padding:0 4px}
+.hq{margin:12px 0 2px;font-weight:700;font-size:11.5pt}
+.ln{height:9mm;border-bottom:1px solid #666}
+.hn{clear:both}.ia{font-size:.88rem;background:var(--bg);border:1px dashed var(--bd);border-radius:8px;padding:8px;margin:8px 0}.ia:empty{display:none}.lowc{background:var(--wa)}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media print{
+  :root{--bg:#fff;--card:#fff;--tx:#000;--mu:#333;--pr:#000;--ac:#000;--bd:#888;--ok:#eee;--wa:#ddd;--er:#ccc}
+  body{background:#fff}
+  header,nav,.btn,.noprint{display:none!important}
+  body[data-print] main>section:not(.printing){display:none!important}
+  main>section.printing{display:block!important}
+  .ponly{display:block!important}
+  .card{break-inside:avoid;border-color:#888}
+  textarea{min-height:110px;border:1px solid #888}
+  .read p{font-size:12pt}
+  .viewer{display:none!important}
+  .hoja{page-break-after:always}.hoja:last-child{page-break-after:auto}
+}
+</style>
+</head>
+<body>
+<header><img src="icono/icono-192.png?v=6" alt="" onerror="this.remove()"><div><h1>Evaluación de lectura · 5.° “E” · Comunicación</h1><p id="hsch"></p></div></header>
+<nav id="nav"></nav>
+<main>
+
+<section id="est">
+  <div class="card">
+    <b>Datos del estudiante</b>
+    <label for="sel">Estudiante (nómina 5.° “E”)</label>
+    <select id="sel"></select>
+    <div id="otrow" class="hide"><label for="otro">Nombre del estudiante</label><input type="text" id="otro" placeholder="Apellidos y nombres"></div>
+    <div class="grid2">
+      <div><label for="gr">Grado y sección</label><input type="text" id="gr" value="5.° “E”"></div>
+      <div><label for="fecha">Fecha</label><input type="text" id="fecha"></div>
+    </div>
+    <p class="note" id="comp"></p>
+    <p><b>Cómo se usa:</b></p>
+    <ol class="steps">
+      <li>Elige al estudiante e imprime las hojas para escribir a mano.</li>
+      <li>El estudiante lee y responde en papel.</li>
+      <li>En “Calificar” sube la foto o el PDF de su hoja: se muestra junto a la clave y marcas 2, 1 o 0.</li>
+      <li>El sistema calcula C, B, A o AD y genera el informe.</li>
+    </ol>
+    <button class="btn" onclick="imprHojas()">Imprimir hojas para escribir a mano</button>
+    <button class="btn sec" onclick="go('lec0')">Ver las lecturas en pantalla</button>
+    <button class="btn sec" onclick="go('calif')">Ir a calificar hojas</button>
+    <button class="btn warn" onclick="nuevo()">Nuevo estudiante (borrar todo)</button>
+  </div>
+  <div class="card">
+    <b>Nómina del grado</b>
+    <p class="note">La nómina del 5.° “E” se carga sola desde el archivo <code>nomina.js</code>. Si necesitas otra lista, pégala aquí (un estudiante por línea) y pulsa “Cargar nómina”.</p>
+    <textarea id="nom" placeholder="Nombres y apellidos, uno por línea"></textarea>
+    <label style="font-weight:400"><input type="checkbox" id="nrem"> Recordar la nómina en este navegador (no usar en computadoras compartidas)</label>
+    <button class="btn" onclick="cargarNomina()">Cargar nómina</button> <span class="note" id="nn"></span>
+  </div>
+  <div class="card">
+    <b>Imprimir por nómina</b>
+    <p class="note">Imprime las hojas con el nombre de cada estudiante de la nómina (29 estudiantes).</p>
+    <label for="modo">Qué imprimir</label>
+    <select id="modo">
+      <option value="todo">Texto + preguntas con líneas (4 páginas por estudiante)</option>
+      <option value="preg">Solo hojas de preguntas con nombre (2 páginas por estudiante; los textos se reparten aparte)</option>
+      <option value="textos">Solo los 2 textos, sin nombre (2 páginas, para fotocopiar)</option>
+    </select>
+    <div class="grid2">
+      <div><label for="desde">Desde el N.°</label><input type="number" id="desde" value="1" min="1" inputmode="numeric"></div>
+      <div><label for="hasta">Hasta el N.°</label><input type="number" id="hasta" value="29" min="1" inputmode="numeric"></div>
+    </div>
+    <button class="btn" onclick="imprNomina()">Imprimir nómina</button>
+  </div>
+</section>
+
+<section id="lec0"></section>
+<section id="lec1"></section>
+
+<section id="calif">
+  <div class="card noprint"><b>Zona del docente.</b> Sube la foto o el PDF de la hoja escrita a mano (se ve solo en tu navegador, no se envía a ningún sitio), compárala con la clave y marca 2, 1 o 0. Niveles: AD ≥ 85 %, A 65–84 %, B 50–64 %, C &lt; 50 % (referenciales; adáptalos a tu institución).</div>
+  <div class="ponly"><b>Estudiante:</b> <span class="pname"></span></div>
+  <div class="card noprint"><b>Ajustes de IA (para leer la letra)</b>
+    <p class="note">Necesitas tu propia clave de API de Anthropic. La clave se escribe aquí y no está en el archivo. Cada hoja enviada tiene un costo pequeño. Se envía solo la imagen (cubre el nombre del estudiante).</p>
+    <div class="grid2"><div><label for="akey">Clave de API</label><input type="password" id="akey" autocomplete="off" placeholder="sk-ant-..."></div>
+    <div><label for="amodel">Modelo</label><input type="text" id="amodel"></div></div>
+    <label style="font-weight:400"><input type="checkbox" id="arem"> Recordar la clave en este navegador (no usar en computadoras compartidas)</label></div>
+  <div id="cal"></div>
+  <button class="btn" onclick="calcAll(true)">Calcular resultados</button>
+  <button class="btn sec" onclick="printSec('calif')">Imprimir calificación</button>
+</section>
+
+<section id="fluidez">
+  <div class="card">
+    <h3 style="margin-top:0">Lectura en voz alta (1 minuto)</h3>
+    <p>Pide al estudiante que lea en voz alta. Marca los errores en tu copia y anota hasta dónde llegó cuando suene el minuto.</p>
+    <div class="timer" id="tm">60</div>
+    <div style="text-align:center"><button class="btn" id="bs" onclick="startT()">Iniciar</button><button class="btn sec" onclick="resetT()">Reiniciar</button></div>
+  </div>
+  <div id="fl"></div>
+</section>
+
+<section id="informe">
+  <div class="card noprint">
+    <b>Informe de la evaluación</b>
+    <p class="note">Reúne los resultados de las dos lecturas del estudiante seleccionado. Antes, califica las preguntas en la pestaña “Calificar”.</p>
+    <button class="btn" onclick="genInforme()">Generar informe</button>
+    <button class="btn sec" onclick="printSec('informe')">Imprimir informe</button>
+  </div>
+  <div id="inf" class="card rep hide"></div>
+</section>
+
+<section id="hojas" class="hide"></section>
+</main>
+<script>
+const DATA = {"school": "I.E. N.° 82019 “La Florida” · UGEL Cajamarca", "docente": "Walter Rodrigo Arribasplata Chavarry", "students": [], "comp": "Lee diversos tipos de textos escritos en su lengua materna", "caps": {"L": "Obtiene información del texto escrito", "I": "Infiere e interpreta información del texto", "C": "Reflexiona y evalúa la forma, el contenido y el contexto del texto"}, "tn": {"L": "Literal", "I": "Inferencial", "C": "Crítica"}, "reads": [{"title": "El huerto que no daba frutos", "nivel": "Nivel base", "paras": ["En la escuela de Lucía había un huerto que cada año daba menos frutos. Los niños regaban las plantas, quitaban la maleza y ponían abono, pero las flores se marchitaban sin dejar calabazas ni tomates.", "Un día, la maestra Rosa notó que casi no se veían abejas en el huerto. Les explicó que las abejas llevan el polen de una flor a otra, y que sin ese viaje las flores no se convierten en frutos.", "Lucía propuso plantar flores de colores cerca de las hortalizas para atraer a las abejas. Todos la apoyaron, aunque Mateo dudaba de que algo tan sencillo funcionara.", "Pasaron dos meses. Una mañana, el huerto zumbaba de actividad y las matas de calabaza estaban llenas de flores amarillas. Mateo sonrió y dijo: “Creo que me equivoqué”.", "Desde entonces, cada grado cuida un rincón de flores. Los niños aprendieron que proteger a los pequeños animales también es cuidar la comida de todos."], "q": [{"t": "L", "q": "¿Qué hacían los niños para cuidar el huerto?", "k": "Regaban las plantas, quitaban la maleza y ponían abono. Correcta (2) si menciona al menos dos; parcial (1) si menciona una."}, {"t": "L", "q": "Según la maestra Rosa, ¿qué hacen las abejas?", "k": "Llevan el polen de una flor a otra y así las flores se convierten en frutos. Parcial (1) si solo dice que llevan polen."}, {"t": "I", "q": "Aunque los niños cuidaban el huerto, ¿por qué daba pocos frutos?", "k": "Porque casi no había abejas que llevaran el polen de flor en flor. Parcial (1) si solo dice “faltaban abejas” sin explicar por qué importa."}, {"t": "I", "q": "¿Por qué Mateo dijo “Creo que me equivoqué”?", "k": "Porque dudaba de la idea de Lucía y vio que sí funcionó. Parcial (1) si solo menciona una de las dos ideas."}, {"t": "C", "q": "¿Crees que la idea de Lucía fue buena? Explica tu respuesta.", "k": "Respuesta abierta. Correcta (2) si da una razón apoyada en el texto (atrajo abejas, el huerto se llenó de flores). Parcial (1) si solo dice “sí” o “porque sí”."}, {"t": "C", "q": "¿Qué otra cosa podría hacer la escuela para proteger a las abejas?", "k": "Respuesta abierta y razonable (no usar insecticidas, poner agua, sembrar más flores, hacer una campaña). Parcial (1) si es vaga."}], "words": 155}, {"title": "Los guardianes de la quebrada", "nivel": "Nivel intermedio", "paras": ["En el caserío de Yanacancha, las familias dependían de una quebrada que bajaba desde la cabecera del cerro. Durante generaciones, su agua había alcanzado para regar las chacras y para beber. Sin embargo, en los últimos años el caudal disminuía tanto que, en época de sequía, apenas quedaba un hilo de agua entre las piedras.", "Don Gerardo, el presidente de la comunidad, convocó a una asamblea. Algunos vecinos culparon a la falta de lluvias; otros, a los ingenieros de la ciudad. Pero la profesora Elena, que había llevado a sus alumnos a recorrer la cabecera, mostró unas fotografías: el pajonal donde nacía la quebrada estaba pisoteado por el ganado y gran parte de la vegetación había desaparecido. “El pajonal funciona como una esponja —explicó—: guarda el agua de las lluvias y la va soltando poco a poco”.", "Tras debatir durante horas, la comunidad acordó cercar el pajonal, sembrar plantas nativas y turnar a los pastores para llevar el ganado a otras zonas. Algunos protestaron porque tendrían que caminar más, pero aceptaron cuando entendieron que el sacrificio de hoy asegura el agua de mañana.", "Al cabo de dos años, la quebrada ya no se secaba en verano. Los estudiantes de la escuela, convertidos en “guardianes de la quebrada”, vigilan cada mes el cercado y miden el caudal. Don Gerardo suele repetirles: “El agua no se acaba cuando falta la lluvia, sino cuando dejamos de cuidar el lugar donde nace”."], "q": [{"t": "L", "q": "¿Qué problema tenía la quebrada de Yanacancha en los últimos años?", "k": "Su caudal disminuía; en época de sequía apenas quedaba un hilo de agua. Parcial (1) si solo dice que “se estaba secando” sin precisar cuándo o cómo."}, {"t": "L", "q": "¿Qué acordó hacer la comunidad para recuperar el agua?", "k": "Cercar el pajonal, sembrar plantas nativas y turnar a los pastores para llevar el ganado a otras zonas. Correcta (2) si menciona al menos dos; parcial (1) si menciona una."}, {"t": "I", "q": "¿Por qué la profesora Elena comparó el pajonal con una esponja?", "k": "Porque el pajonal guarda el agua de lluvia y la va soltando poco a poco, como una esponja. Parcial (1) si solo dice que “guarda agua”."}, {"t": "I", "q": "¿Por qué algunos vecinos protestaron y luego aceptaron las medidas?", "k": "Protestaron porque tendrían que caminar más; aceptaron al entender que el sacrificio actual asegura el agua del futuro. Parcial (1) si explica solo una de las dos partes."}, {"t": "C", "q": "¿Qué opinas de la frase de don Gerardo: “El agua no se acaba cuando falta la lluvia, sino cuando dejamos de cuidar el lugar donde nace”? Explica.", "k": "Respuesta abierta. Correcta (2) si interpreta que cuidar la fuente importa más que la lluvia y lo justifica con el texto o con un ejemplo. Parcial (1) si solo dice “estoy de acuerdo”."}, {"t": "C", "q": "¿Fue buena idea que los estudiantes se convirtieran en “guardianes de la quebrada”? ¿Por qué?", "k": "Respuesta abierta. Correcta (2) si da una razón válida (aprenden a cuidar el agua, vigilan el cercado, continúa el cuidado en el futuro). Parcial (1) si la razón es vaga."}], "words": 238}], "niv": [{"c": "AD", "d": "Logro destacado", "min": 85}, {"c": "A", "d": "Logro esperado", "min": 65}, {"c": "B", "d": "En proceso", "min": 50}, {"c": "C", "d": "En inicio", "min": 0}]};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const RD=DATA.reads;
+const CFG=Object.assign({school:DATA.school,docente:DATA.docente,grade:'5.° “E”',model:'claude-sonnet-5-5'},window.CONFIG||{});DATA.school=CFG.school;DATA.docente=CFG.docente;
+const FL={};
+const tabs=[['est','Estudiante'],['lec0','Lectura 1'],['lec1','Lectura 2'],['calif','Calificar'],['fluidez','Voz alta'],['informe','Informe']];
+const secs=tabs.map(t=>t[0]);
+$('nav').innerHTML=tabs.map((t,i)=>'<button data-t="'+t[0]+'"'+(i?'':' class="on"')+'>'+(i<3?(i+1)+'. ':'')+t[1]+(i>=3?' (docente)':'')+'</button>').join('');
+function go(t){secs.forEach(s=>$(s).classList.toggle('hide',s!==t));
+  document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  if(t==='calif')buildCal();window.scrollTo(0,0);}
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.t));
+go('est');
+$('hsch').textContent=DATA.school+' · Docente: '+DATA.docente;
+$('comp').textContent='Competencia: '+DATA.comp+'.';
+$('fecha').value=new Date().toLocaleDateString('es-PE');$('gr').value=CFG.grade;
+let STUDENTS=[];
+function fillSel(){const cur=$('sel').value;$('sel').innerHTML='<option value="">— Selecciona al estudiante —</option>'+STUDENTS.map(s=>'<option>'+esc(s)+'</option>').join('')+'<option value="__otro">Otro (escribir el nombre)</option>';$('sel').value=cur;}
+function cargarNomina(){STUDENTS=$('nom').value.split('\n').map(x=>x.replace(/^\s*\d+[\.\)\-\s]+/,'').trim()).filter(Boolean);
+  try{if($('nrem').checked)localStorage.setItem('nomina',JSON.stringify(STUDENTS));else localStorage.removeItem('nomina');}catch(e){}
+  fillSel();$('nn').textContent=STUDENTS.length+' estudiantes cargados.';if(STUDENTS.length)$('hasta').value=STUDENTS.length;}
+try{const sv=JSON.parse(localStorage.getItem('nomina')||'null');if(sv&&sv.length){STUDENTS=sv;$('nom').value=sv.join('\n');$('nrem').checked=true;$('nn').textContent=sv.length+' estudiantes cargados.';}
+  const k=localStorage.getItem('ak');if(k){$('akey').value=k;$('arem').checked=true;}}catch(e){}
+if(window.NOMINA&&window.NOMINA.length){STUDENTS=window.NOMINA.slice();$('nom').value=STUDENTS.join('\n');$('nn').textContent=STUDENTS.length+' estudiantes cargados desde la nómina.';$('hasta').value=STUDENTS.length;}
+fillSel();$('amodel').value=CFG.model;
+$('sel').onchange=()=>$('otrow').classList.toggle('hide',$('sel').value!=='__otro');
+const sname=()=>{const v=$('sel').value;return v==='__otro'?$('otro').value.trim():v;};
+function nuevo(){if(confirm('Se borrarán todas las respuestas, calificaciones y datos de este estudiante. ¿Continuar?'))location.reload();}
+function printSec(id){document.querySelectorAll('.pname').forEach(e=>e.textContent=(sname()||'(sin nombre)')+' · '+$('gr').value+' · '+$('fecha').value);
+  document.body.dataset.print=id;$(id).classList.add('printing');
+  const done=()=>{delete document.body.dataset.print;$(id).classList.remove('printing');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);window.print();}
+
+/* Lecturas */
+RD.forEach((r,n)=>{
+  $('lec'+n).className='hide';
+  $('lec'+n).innerHTML=
+   '<div class="ponly"><b>Estudiante:</b> <span class="pname"></span></div>'+
+   '<div class="card read"><div class="note">Lectura '+(n+1)+' de 2 · '+esc(r.nivel)+'</div><h2>'+esc(r.title)+'</h2>'+r.paras.map(p=>'<p>'+esc(p)+'</p>').join('')+'</div>'+
+   r.q.map((q,i)=>'<div class="card"><b>'+(i+1)+'. '+esc(q.q)+'</b><label for="a'+n+'_'+i+'" class="note">Respuesta en pantalla (opcional)</label><textarea id="a'+n+'_'+i+'" placeholder="Opcional: solo si responde en pantalla"></textarea></div>').join('')+
+   '<button class="btn sec" onclick="go(\''+(n?'lec0':'est')+'\')">← Atrás</button>'+
+   '<button class="btn" onclick="go(\''+(n?'calif':'lec1')+'\')">'+(n?'Ir a calificar →':'Ir a la Lectura 2 →')+'</button>'+
+   '<button class="btn sec" onclick="printSec(\'lec'+n+'\')">Imprimir</button>';
+});
+
+/* Calificación */
+const nivel=p=>DATA.niv.find(x=>p>=x.min);
+const FILES={0:[],1:[]},CUR={0:0,1:0},ZOOM={0:100,1:100};
+function buildCal(){
+  const keep={};RD.forEach((r,n)=>r.q.forEach((_,i)=>{const c=document.querySelector('input[name=p'+n+'_'+i+']:checked');if(c)keep[n+'_'+i]=c.value;}));
+  $('cal').innerHTML='<div class="card"><b>Estudiante:</b> '+esc(sname()||'(sin nombre)')+' · '+esc($('gr').value)+' · '+esc($('fecha').value)+'</div>'+
+  RD.map((r,n)=>'<h3>Lectura '+(n+1)+': '+esc(r.title)+'</h3><div class="noprint"><button class="btn" onclick="iaCalificar('+n+')">Calificar con IA</button> <span id="ia'+n+'" class="note"></span></div><div class="calwrap"><div class="viewer noprint" id="viewer'+n+'"></div><div class="qcol">'+
+   r.q.map((q,i)=>{const a=$('a'+n+'_'+i).value.trim();
+    return '<div class="card"><b>'+(i+1)+'. '+esc(q.q)+'</b><span class="tag">'+DATA.tn[q.t]+'</span>'+
+    (a?'<div class="stu"><b>Respuesta en pantalla:</b> '+esc(a)+'</div>':'')+
+    '<div class="clave"><b>Clave:</b> '+esc(q.k)+'</div><div id="iab'+n+'_'+i+'" class="ia"></div>'+
+    '<div class="pts">'+[2,1,0].map(v=>'<label><input type="radio" name="p'+n+'_'+i+'" value="'+v+'"'+(keep[n+'_'+i]==v?' checked':'')+'> '+({2:'Correcta (2)',1:'Parcial (1)',0:'Incorrecta (0)'})[v]+'</label>').join('')+'</div></div>';}).join('')+
+   '<div id="res'+n+'" class="card hide"></div></div></div>').join('');
+  RD.forEach((_,n)=>{renderViewer(n);showIA(n);});
+}
+function upl(n){$('up'+n).click();}
+function addFiles(n,inp){const fl=[...inp.files];if(!fl.length)return;const start=FILES[n].length;
+  fl.forEach(f=>FILES[n].push({url:URL.createObjectURL(f),pdf:f.type==='application/pdf'||/\.pdf$/i.test(f.name),name:f.name,rot:0}));
+  CUR[n]=start;renderViewer(n);}
+function vNav(n,d){const L=FILES[n].length;CUR[n]=(CUR[n]+d+L)%L;renderViewer(n);}
+function vZoom(n,d){ZOOM[n]=Math.max(50,Math.min(300,ZOOM[n]+d));renderViewer(n);}
+function vRot(n){const f=FILES[n][CUR[n]];f.rot=(f.rot+90)%360;drawImg(n);}
+function vDel(n){const f=FILES[n][CUR[n]];URL.revokeObjectURL(f.url);FILES[n].splice(CUR[n],1);CUR[n]=0;renderViewer(n);}
+function drawImg(n){const f=FILES[n][CUR[n]],c=$('cv'+n);if(!f||!c)return;const img=new Image();
+  img.onload=()=>{const r=f.rot%180!==0;c.width=r?img.height:img.width;c.height=r?img.width:img.height;const x=c.getContext('2d');
+    x.save();x.translate(c.width/2,c.height/2);x.rotate(f.rot*Math.PI/180);x.drawImage(img,-img.width/2,-img.height/2);x.restore();};
+  img.onerror=()=>{const p=document.createElement('p');p.className='note';p.textContent='No se pudo mostrar esta imagen (formato no compatible). Usa JPG, PNG o PDF.';c.replaceWith(p);};
+  img.src=f.url;}
+function renderViewer(n){
+  const V=$('viewer'+n);if(!V)return;const fs=FILES[n];
+  const bar='<div class="vbar"><button class="btn" onclick="upl('+n+')">'+(fs.length?'+ Subir otra hoja':'Subir hoja del estudiante')+'</button><input type="file" id="up'+n+'" accept="image/*,application/pdf" multiple hidden onchange="addFiles('+n+',this)">';
+  if(!fs.length){V.innerHTML=bar+'</div><p class="note">Sube la foto o el PDF de la hoja de esta lectura (JPG, PNG o PDF). Puedes subir varias hojas.</p>';return;}
+  const f=fs[CUR[n]];
+  V.innerHTML=bar+'<button class="btn sec" onclick="vNav('+n+',-1)">←</button><span class="note">Hoja '+(CUR[n]+1)+' de '+fs.length+'</span><button class="btn sec" onclick="vNav('+n+',1)">→</button>'+
+   (f.pdf?'':'<button class="btn sec" onclick="vZoom('+n+',-25)">−</button><button class="btn sec" onclick="vZoom('+n+',25)">+</button><button class="btn sec" onclick="vRot('+n+')">↻</button>')+
+   '<button class="btn warn" onclick="vDel('+n+')">Quitar</button></div>'+
+   (f.pdf?'<embed src="'+f.url+'" type="application/pdf" style="width:100%;height:60vh"><p class="note"><a href="'+f.url+'" target="_blank">Abrir el PDF en otra pestaña</a> si no se ve aquí.</p>':'<div class="imgbox"><canvas id="cv'+n+'" style="width:'+ZOOM[n]+'%"></canvas></div>');
+  if(!f.pdf)drawImg(n);
+}
+/* Hojas para escribir a mano */
+const hdrH=(n,nm)=>'<div class="hh"><img src="icono/icono-192.png?v=6" alt="" style="height:15mm;float:left;margin-right:6px" onerror="this.remove()"><b>'+esc(DATA.school)+'</b><br>Comunicación · Lectura '+(n+1)+' de 2</div><div class="hn">Nombre: <span style="flex:2.6">'+esc(nm||'')+'</span> Grado: <span style="flex:.4">'+esc($('gr').value)+'</span> Fecha: <span style="flex:.5">'+esc($('fecha').value)+'</span> Puntaje: <span style="flex:.3">/ 12</span></div>';
+const pagTexto=(n,nm)=>{const r=RD[n];return '<div class="hoja">'+hdrH(n,nm)+'<p style="font-size:10pt"><b>Competencia:</b> '+esc(DATA.comp)+'. Lee el texto con atención y luego responde en la hoja siguiente.</p><h2>'+esc(r.title)+'</h2>'+r.paras.map(p=>'<p>'+esc(p)+'</p>').join('')+'</div>';};
+const pagPreg=(n,nm)=>{const r=RD[n];return '<div class="hoja">'+hdrH(n,nm)+'<h2 style="font-size:14pt">Preguntas · '+esc(r.title)+'</h2>'+
+  r.q.map((q,i)=>'<div class="hq">'+(i+1)+'. '+esc(q.q)+'</div>'+'<div class="ln"></div>'.repeat(q.t==='L'?2:3)).join('')+'</div>';};
+function imprHojas(){
+  $('hojas').innerHTML=RD.map((r,n)=>pagTexto(n,sname())+pagPreg(n,sname())).join('');
+  printSec('hojas');
+}
+function imprNomina(){
+  const modo=$('modo').value,N=STUDENTS.length;
+  if(!N&&modo!=='textos'){alert('Primero carga la nómina del grado.');return;}
+  const d=Math.max(1,Math.floor(+$('desde').value||1)),h=Math.min(N,Math.floor(+$('hasta').value||N));
+  if(d>h){alert('Revisa el rango: "Desde" no puede ser mayor que "Hasta" (máximo '+N+').');return;}
+  const nest=h-d+1,pags=modo==='textos'?2:nest*(modo==='todo'?4:2);
+  if(!confirm('Se prepararán '+pags+' páginas'+(modo==='textos'?'':' ('+nest+' estudiantes, del N.° '+d+' al '+h+')')+'. ¿Continuar?'))return;
+  let html='';
+  if(modo==='textos')html=RD.map((r,n)=>pagTexto(n,'')).join('');
+  else for(let k=d-1;k<h;k++){const nm=STUDENTS[k];html+=RD.map((r,n)=>(modo==='todo'?pagTexto(n,nm):'')+pagPreg(n,nm)).join('');}
+  $('hojas').innerHTML=html;
+  printSec('hojas');
+}
+function calcR(n){
+  const r=RD[n],by={L:[0,0],I:[0,0],C:[0,0]};let tot=0,max=0,miss=[];
+  r.q.forEach((q,i)=>{by[q.t][1]+=2;max+=2;const c=document.querySelector('input[name=p'+n+'_'+i+']:checked');if(!c){miss.push(i+1);return;}tot+=+c.value;by[q.t][0]+=+c.value;});
+  if(miss.length)return {miss};
+  const pct=Math.round(tot/max*100),caps={};
+  ['L','I','C'].forEach(k=>{const p=Math.round(by[k][0]/by[k][1]*100);caps[k]={pts:by[k][0],max:by[k][1],pct:p,lvl:nivel(p)};});
+  return {tot,max,pct,lvl:nivel(pct),caps};
+}
+const chip=l=>'<span class="lvl '+l.c+'">'+l.c+'</span>';
+function capTable(res){return '<table><tr><th>Capacidad</th><th>Tipo</th><th>Puntos</th><th>%</th><th>Nivel</th></tr>'+
+  ['L','I','C'].map(k=>'<tr><td>'+DATA.caps[k]+'</td><td>'+DATA.tn[k]+'</td><td>'+res.caps[k].pts+' / '+res.caps[k].max+'</td><td>'+res.caps[k].pct+' %</td><td>'+chip(res.caps[k].lvl)+'</td></tr>').join('')+'</table>';}
+function calcAll(scroll){
+  RD.forEach((r,n)=>{const R=$('res'+n);if(!R)return;R.classList.remove('hide');const res=calcR(n);
+    R.innerHTML=res.miss?'<b>Lectura '+(n+1)+':</b> falta calificar la(s) pregunta(s) '+res.miss.join(', ')+'.':
+    '<b>Resultado · Lectura '+(n+1)+'</b><div class="big">'+res.tot+' / '+res.max+' · '+res.pct+' % '+chip(res.lvl)+'</div><p>'+res.lvl.d+'</p>'+capTable(res);});
+  if(scroll)$('res0').scrollIntoView({behavior:'smooth'});
+}
+
+/* Fluidez */
+$('fl').innerHTML=RD.map((r,n)=>'<div class="card"><h3 style="margin-top:0">Lectura '+(n+1)+': '+esc(r.title)+' ('+r.words+' palabras)</h3>'+
+  '<div class="grid2"><div><label for="le'+n+'">Palabras leídas en 1 minuto</label><input type="number" id="le'+n+'" min="0" inputmode="numeric"></div>'+
+  '<div><label for="er'+n+'">Errores (omisiones y sustituciones)</label><input type="number" id="er'+n+'" min="0" inputmode="numeric"></div></div>'+
+  '<p class="note">Escala 1 a 4: 1 = necesita apoyo, 2 = en proceso, 3 = logrado, 4 = destacado.</p><div class="grid2">'+
+  ['Entonación','Puntuación','Ritmo','Pronunciación'].map((a,j)=>'<div><label for="f'+n+'_'+j+'">'+a+'</label><select id="f'+n+'_'+j+'"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>').join('')+
+  '</div><button class="btn" onclick="calcF('+n+')">Calcular fluidez</button><button class="btn sec" onclick="vozStart('+n+')">🎤 Leer con micrófono (experimental)</button><div id="vs'+n+'" class="note"></div><div id="vt'+n+'" class="stu" style="min-height:2em"></div><div id="fr'+n+'" class="hide" style="margin-top:8px"></div></div>').join('');
+let T=60,iv=null;
+function startT(){if(iv){clearInterval(iv);iv=null;$('bs').textContent='Reanudar';return;}$('bs').textContent='Pausar';
+  iv=setInterval(()=>{T--;$('tm').textContent=T;if(T<=0){clearInterval(iv);iv=null;$('tm').textContent='¡Tiempo!';$('bs').textContent='Iniciar';T=60;try{navigator.vibrate&&navigator.vibrate(300)}catch(e){}}},1000);}
+function resetT(){clearInterval(iv);iv=null;T=60;$('tm').textContent=60;$('bs').textContent='Iniciar';}
+function calcF(n){
+  const l=+$('le'+n).value,e=+$('er'+n).value,R=$('fr'+n);R.classList.remove('hide');
+  if(!l||e<0||e>l){delete FL[n];R.textContent='Revisa los datos: las palabras leídas deben ser mayores que 0 y los errores no pueden superar las palabras leídas.';return;}
+  const pcm=l-e,pre=Math.round(pcm/l*100);
+  const lv=pcm>=130?DATA.niv[0]:pcm>=110?DATA.niv[1]:pcm>=90?DATA.niv[2]:DATA.niv[3];
+  const sc=[0,1,2,3].map(j=>+$('f'+n+'_'+j).value).filter(Boolean);
+  const prom=sc.length?(sc.reduce((a,b)=>a+b)/sc.length):null;
+  FL[n]={pcm,pre,lv,prom,cnt:sc.length};
+  R.innerHTML='<div class="big">'+pcm+' PCM '+chip(lv)+'</div><p>'+lv.d+' · Precisión: '+pre+' %'+(prom?' · Observación: '+prom.toFixed(1)+' / 4':'')+'</p><p class="note">Niveles por PCM (referencia): AD ≥ 130, A 110–129, B 90–109, C &lt; 90. Confírmalos con la norma de tu institución.</p>';
+}
+
+
+/* ===== IA para leer la letra (clave propia del docente) ===== */
+const IAR={0:null,1:null};
+async function fileToPart(f){
+  if(f.pdf){const u=new Uint8Array(await (await fetch(f.url)).arrayBuffer());let bin='';for(let i=0;i<u.length;i+=0x8000)bin+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));
+    return {type:'document',source:{type:'base64',media_type:'application/pdf',data:btoa(bin)}};}
+  const img=await new Promise((ok,ko)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=ko;im.src=f.url;});
+  const sc=Math.min(1,1600/Math.max(img.width,img.height)),w=Math.round(img.width*sc),h=Math.round(img.height*sc),r=f.rot%180!==0;
+  const c=document.createElement('canvas');c.width=r?h:w;c.height=r?w:h;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
+  x.translate(c.width/2,c.height/2);x.rotate(f.rot*Math.PI/180);x.drawImage(img,-w/2,-h/2,w,h);
+  return {type:'image',source:{type:'base64',media_type:'image/jpeg',data:c.toDataURL('image/jpeg',.85).split(',')[1]}};
+}
+async function iaCalificar(n){
+  const key=$('akey').value.trim(),model=$('amodel').value.trim()||CFG.model,st=$('ia'+n);
+  try{if($('arem').checked)localStorage.setItem('ak',key);else localStorage.removeItem('ak');}catch(e){}
+  if(!key){st.textContent='Escribe tu clave de API en “Ajustes de IA”.';return;}
+  if(!FILES[n].length){st.textContent='Primero sube la hoja del estudiante.';return;}
+  if(!confirm('Se enviará la imagen de la hoja a la API de Anthropic para leerla. Cubre el nombre del estudiante antes de fotografiar. ¿Tienes autorización para hacerlo?'))return;
+  st.textContent='Leyendo la hoja… puede tardar unos segundos.';
+  try{
+    const parts=[];for(const f of FILES[n])parts.push(await fileToPart(f));
+    const r=RD[n];
+    const prompt='Eres un asistente de un docente de 5.º grado de primaria (Perú, área Comunicación). Las imágenes son la hoja de respuestas escrita a mano por un estudiante sobre este texto:\n\n'+r.title+'\n'+r.paras.join('\n')+
+     '\n\nPreguntas, tipo y clave (puntaje: 2 correcta, 1 parcial, 0 incorrecta):\n'+r.q.map((q,i)=>(i+1)+'. ['+DATA.tn[q.t]+'] '+q.q+'\nCLAVE: '+q.k).join('\n')+
+     '\n\nTareas: 1) Transcribe fielmente la respuesta manuscrita de cada pregunta (conserva errores ortográficos; usa [ilegible] donde no entiendas). 2) Califica con la clave: 2, 1 o 0. Sé estricto; no inventes aciertos ni completes lo que no está escrito. 3) Si la respuesta falta o no se puede leer, puntaje null y confianza "baja". Responde SOLO con JSON válido: {"respuestas":[{"n":1,"transcripcion":"","puntaje":0,"confianza":"alta|media|baja","justificacion":"una línea"}]} con las '+r.q.length+' preguntas.';
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model,max_tokens:2500,messages:[{role:'user',content:[...parts,{type:'text',text:prompt}]}]})});
+    const j=await res.json();
+    if(!res.ok)throw new Error((j.error&&j.error.message)||('Error '+res.status));
+    const m=j.content.map(c=>c.text||'').join('').match(/\{[\s\S]*\}/);if(!m)throw new Error('La IA no devolvió un resultado legible.');
+    IAR[n]=JSON.parse(m[0]);
+    (IAR[n].respuestas||[]).forEach(a=>{const i=a.n-1;if([0,1,2].includes(a.puntaje)&&i>=0&&i<r.q.length){const rd=document.querySelector('input[name=p'+n+'_'+i+'][value="'+a.puntaje+'"]');if(rd)rd.checked=true;}});
+    showIA(n,true);
+  }catch(e){st.textContent='No se pudo calificar: '+e.message;}
+}
+function showIA(n,fresh){
+  const out=IAR[n];if(!out)return;let rev=0;
+  (out.respuestas||[]).forEach(a=>{const i=a.n-1,b=$('iab'+n+'_'+i);if(!b)return;const ok=[0,1,2].includes(a.puntaje),low=!ok||a.confianza==='baja';if(low)rev++;
+    b.className='ia'+(low?' lowc':'');b.innerHTML='<b>IA leyó:</b> '+esc(a.transcripcion||'—')+'<br><b>Propuesta:</b> '+(ok?a.puntaje:'sin puntaje')+' · confianza '+esc(a.confianza||'?')+' · '+esc(a.justificacion||'');});
+  $('ia'+n).textContent='Propuesta de la IA lista. Revisa cada respuesta'+(rev?' (en amarillo, '+rev+' para mirar con más cuidado)':'')+' y corrige lo que haga falta.';
+}
+/* ===== Lectura en voz alta con micrófono (estimación) ===== */
+const normW=t=>t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(Boolean);
+function alignLec(R,S){
+  const n=S.length,m=R.length,D=Array.from({length:n+1},()=>new Array(m+1).fill(0));
+  for(let j=0;j<=m;j++)D[0][j]=j;for(let i=0;i<=n;i++)D[i][0]=i;
+  for(let i=1;i<=n;i++)for(let j=1;j<=m;j++)D[i][j]=Math.min(D[i-1][j-1]+(S[i-1]===R[j-1]?0:1),D[i-1][j]+1,D[i][j-1]+1);
+  let bj=0,best=1e9;for(let j=0;j<=m;j++)if(D[n][j]<best){best=D[n][j];bj=j;}
+  let i=n,j=bj,M=0,Sb=0,Dl=0,In=0;
+  while(i>0||j>0){
+    if(i>0&&j>0&&D[i][j]===D[i-1][j-1]+(S[i-1]===R[j-1]?0:1)){if(S[i-1]===R[j-1])M++;else Sb++;i--;j--;}
+    else if(j>0&&D[i][j]===D[i][j-1]+1){Dl++;j--;}else{In++;i--;}
+  }
+  return {leidas:bj,M,Sb,Dl,In};
+}
+let MIC=null;
+function vozStart(n){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition,st=$('vs'+n);
+  if(!SR){st.textContent='Este navegador no permite reconocimiento de voz. Usa Chrome o Edge, o registra los datos a mano.';return;}
+  if(MIC){MIC.stop();return;}
+  if(!confirm('El reconocimiento de voz del navegador envía el audio a un servicio externo (Google, en Chrome). ¿Tienes autorización? Pide al estudiante que lea cerca del micrófono y en silencio.'))return;
+  let fin='',t=60,t0=Date.now();const rec=new SR();rec.lang='es-PE';rec.continuous=true;rec.interimResults=true;MIC=rec;
+  $('vt'+n).textContent='';st.textContent='Escuchando… 60 s (pulsa de nuevo el botón para detener)';
+  const iv=setInterval(()=>{t--;st.textContent='Escuchando… '+t+' s';if(t<=0)rec.stop();},1000);
+  rec.onresult=ev=>{let tmp='';for(let k=ev.resultIndex;k<ev.results.length;k++){const r=ev.results[k];if(r.isFinal)fin+=r[0].transcript+' ';else tmp+=r[0].transcript;}$('vt'+n).textContent=fin+tmp;};
+  rec.onerror=e=>{st.textContent='Error del micrófono: '+e.error;};
+  rec.onend=()=>{clearInterval(iv);MIC=null;const S=normW($('vt'+n).textContent),R=normW(RD[n].paras.join(' '));
+    if(!S.length){st.textContent='No se captó voz. Revisa el permiso del micrófono.';return;}
+    const a=alignLec(R,S),el=Math.round((Date.now()-t0)/1000);$('le'+n).value=a.leidas;$('er'+n).value=a.Sb+a.Dl;calcF(n);
+    st.textContent='Estimado ('+el+' s): '+a.M+' palabras correctas de '+a.leidas+'; omisiones '+a.Dl+', cambiadas '+a.Sb+', de más '+a.In+'. El reconocimiento corrige errores sin avisar y falla con voces infantiles: escucha tú y ajusta los números.';};
+  rec.start();
+}
+/* Informe */
+const REC={L:'Practicar la localización de datos explícitos: subrayar quién, qué, cuándo y dónde.',
+ I:'Trabajar preguntas de “¿por qué?” y “¿qué quiso decir?”, buscando pistas en el texto.',
+ C:'Pedir opiniones con razones (“yo pienso… porque el texto dice…”) y propuestas propias.'};
+const CONC={AD:'El estudiante muestra un desempeño superior al esperado en comprensión lectora: comprende y reflexiona con seguridad.',
+ A:'El estudiante muestra el desempeño esperado para su grado: comprende lo central de los textos y responde con apoyo en ellos.',
+ B:'El estudiante está en proceso: se acerca al nivel esperado, pero aún necesita acompañamiento en algunas capacidades.',
+ C:'El estudiante está en inicio: presenta dificultades para comprender los textos y requiere apoyo sostenido y actividades graduadas.'};
+function genInforme(){
+  const I=$('inf');I.classList.remove('hide');
+  const name=sname();
+  if(!name){I.innerHTML='Selecciona o escribe el nombre del estudiante en la pestaña “Estudiante”.';return;}
+  const res=RD.map((_,n)=>calcR(n)),ok=res.filter(r=>!r.miss);
+  let h='<h2 style="text-align:center">Informe de evaluación de comprensión lectora</h2><p style="text-align:center" class="note">'+esc(DATA.school)+' · Área de Comunicación</p>'+
+   '<p><b>Estudiante:</b> '+esc(name)+'<br><b>Grado y sección:</b> '+esc($('gr').value)+' · <b>Fecha:</b> '+esc($('fecha').value)+'<br><b>Competencia:</b> '+esc(DATA.comp)+'</p>';
+  if(!ok.length){I.innerHTML=h+'<p><b>Aún no hay lecturas calificadas.</b> Ve a “Calificar”, marca 2, 1 o 0 en cada pregunta y vuelve a generar el informe.</p>';return;}
+  h+='<h3>1. Resultados por lectura</h3><table><tr><th>Lectura</th><th>Puntaje</th><th>Porcentaje</th><th>Nivel</th></tr>'+
+   res.map((r,n)=>'<tr><td>'+(n+1)+'. '+esc(RD[n].title)+' <span class="note">('+esc(RD[n].nivel)+')</span></td>'+(r.miss?'<td colspan="3"><i>Sin calificar (faltan preguntas: '+r.miss.join(', ')+')</i></td>':'<td>'+r.tot+' / '+r.max+'</td><td>'+r.pct+' %</td><td>'+chip(r.lvl)+' '+r.lvl.d+'</td>')+'</tr>').join('')+'</table>';
+  h+='<h3>2. Resultados por capacidad</h3>';
+  res.forEach((r,n)=>{if(!r.miss)h+='<b>Lectura '+(n+1)+'</b>'+capTable(r);});
+  const tot=ok.reduce((a,r)=>a+r.tot,0),max=ok.reduce((a,r)=>a+r.max,0),pct=Math.round(tot/max*100),gl=nivel(pct);
+  const cap={};['L','I','C'].forEach(k=>{const p=ok.reduce((a,r)=>a+r.caps[k].pts,0),m=ok.reduce((a,r)=>a+r.caps[k].max,0);cap[k]={p,m,pct:Math.round(p/m*100)};});
+  h+='<h3>3. Resultado general'+(ok.length<2?' (con '+ok.length+' lectura calificada)':' (promedio de ambas lecturas)')+'</h3>'+
+   '<div class="big">'+tot+' / '+max+' · '+pct+' % '+chip(gl)+'</div><p>'+gl.d+'. '+CONC[gl.c]+'</p>';
+  if(ok.length===2){const d=res[1].pct-res[0].pct;
+    h+='<p><b>Comparación:</b> '+(d>0?'subió '+d+' puntos porcentuales':d<0?'bajó '+(-d)+' puntos porcentuales':'se mantuvo igual')+' entre la Lectura 1 y la Lectura 2. <span class="note">La Lectura 2 es de mayor dificultad, así que conviene interpretarlo con cuidado.</span></p>';}
+  const ord=['L','I','C'].sort((a,b)=>cap[a].pct-cap[b].pct),best=ord[2],low=ord[0];
+  h+='<h3>4. Fortaleza y recomendación</h3><p><b>Mayor fortaleza:</b> '+DATA.caps[best]+' ('+cap[best].pct+' %).</p>'+
+   '<p><b>Capacidad a reforzar:</b> '+DATA.caps[low]+' ('+cap[low].pct+' %). '+REC[low]+'</p>';
+  const fr=[0,1].filter(n=>FL[n]);
+  if(fr.length){h+='<h3>5. Lectura en voz alta</h3><table><tr><th>Lectura</th><th>PCM</th><th>Precisión</th><th>Nivel</th><th>Observación (1–4)</th></tr>'+
+    fr.map(n=>'<tr><td>'+(n+1)+'. '+esc(RD[n].title)+'</td><td>'+FL[n].pcm+'</td><td>'+FL[n].pre+' %</td><td>'+chip(FL[n].lv)+'</td><td>'+(FL[n].prom?FL[n].prom.toFixed(1):'—')+'</td></tr>').join('')+'</table>';}
+  h+='<p class="note">Niveles referenciales: AD ≥ 85 %, A 65–84 %, B 50–64 %, C &lt; 50 %. El resultado es un apoyo para la decisión pedagógica del docente y debe contrastarse con otras evidencias.</p>'+
+   '<div class="sign"><div>'+esc(DATA.docente)+'<br>Docente de aula · 5.° “E”</div><div>V°B° Dirección</div></div>';
+  I.innerHTML=h;I.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

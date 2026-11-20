@@ -7,10 +7,10 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>Evaluación de lectura · 5.° E</title>
-<link rel="icon" href="favicon-64.png?v=8"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=8">
-<link rel="manifest" href="manifest.json?v=8"><meta name="theme-color" content="#1f3a5f">
-<script src="config.js?v=8"></script>
-<script src="nomina.js?v=8"></script>
+<link rel="icon" href="favicon-64.png?v=9"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=9">
+<link rel="manifest" href="manifest.json?v=9"><meta name="theme-color" content="#1f3a5f">
+<script src="config.js?v=9"></script>
+<script src="nomina.js?v=9"></script>
 <style>
 :root{--bg:#f6f8fb;--card:#fff;--tx:#1d2733;--mu:#5b6877;--pr:#1f3a5f;--ac:#2e7d5b;--bd:#d5dde7;--ok:#e3f4ea;--wa:#fff4d6;--er:#fde6e6}
 @media (prefers-color-scheme:dark){:root{--bg:#141a22;--card:#1d2631;--tx:#e8edf3;--mu:#9aa8b8;--pr:#8db4e8;--ac:#5cc596;--bd:#33414f;--ok:#1f3a2c;--wa:#3d3418;--er:#4a2424}}
@@ -84,7 +84,7 @@ th,td{border:1px solid var(--bd);padding:7px 8px;text-align:left;vertical-align:
 </style>
 </head>
 <body>
-<header><img src="icono-192.png?v=8" alt="" onerror="this.remove()"><div><h1>Evaluación de lectura · 5.° “E” · Comunicación</h1><p id="hsch"></p></div></header>
+<header><img src="icono-192.png?v=9" alt="" onerror="this.remove()"><div><h1>Evaluación de lectura · 5.° “E” · Comunicación</h1><p id="hsch"></p></div></header>
 <nav id="nav"></nav>
 <main>
 
@@ -110,12 +110,6 @@ th,td{border:1px solid var(--bd);padding:7px 8px;text-align:left;vertical-align:
     <button class="btn sec" onclick="go('lec0')">Ver las lecturas en pantalla</button>
     <button class="btn sec" onclick="go('calif')">Ir a calificar hojas</button>
     <button class="btn warn" onclick="nuevo()">Nuevo estudiante (borrar todo)</button>
-  </div>
-  <div class="card">
-    <b>Diagnóstico de instalación</b>
-    <p class="note">Si “Instalar” no aparece, pulsa el botón y mira qué archivo falta.</p>
-    <button class="btn sec" onclick="diagnostico()">Revisar archivos</button>
-    <pre id="diag" class="note" style="white-space:pre-wrap;word-break:break-all"></pre>
   </div>
   <div class="card">
     <b>Nómina del grado</b>
@@ -178,7 +172,7 @@ th,td{border:1px solid var(--bd);padding:7px 8px;text-align:left;vertical-align:
 </section>
 
 <section id="hojas" class="hide"></section>
-<p class="note" style="text-align:center">Versión 8</p>
+<p class="note" style="text-align:center">Versión 9</p>
 </main>
 <script>
 const DATA = {"school": "I.E. N.° 82019 “La Florida” · UGEL Cajamarca", "docente": "Walter Rodrigo Arribasplata Chavarry", "students": [], "comp": "Lee diversos tipos de textos escritos en su lengua materna", "caps": {"L": "Obtiene información del texto escrito", "I": "Infiere e interpreta información del texto", "C": "Reflexiona y evalúa la forma, el contenido y el contexto del texto"}, "tn": {"L": "Literal", "I": "Inferencial", "C": "Crítica"}, "reads": [{"title": "El huerto que no daba frutos", "nivel": "Nivel base", "paras": ["En la escuela de Lucía había un huerto que cada año daba menos frutos. Los niños regaban las plantas, quitaban la maleza y ponían abono, pero las flores se marchitaban sin dejar calabazas ni tomates.", "Un día, la maestra Rosa notó que casi no se veían abejas en el huerto. Les explicó que las abejas llevan el polen de una flor a otra, y que sin ese viaje las flores no se convierten en frutos.", "Lucía propuso plantar flores de colores cerca de las hortalizas para atraer a las abejas. Todos la apoyaron, aunque Mateo dudaba de que algo tan sencillo funcionara.", "Pasaron dos meses. Una mañana, el huerto zumbaba de actividad y las matas de calabaza estaban llenas de flores amarillas. Mateo sonrió y dijo: “Creo que me equivoqué”.", "Desde entonces, cada grado cuida un rincón de flores. Los niños aprendieron que proteger a los pequeños animales también es cuidar la comida de todos."], "q": [{"t": "L", "q": "¿Qué hacían los niños para cuidar el huerto?", "k": "Regaban las plantas, quitaban la maleza y ponían abono. Correcta (2) si menciona al menos dos; parcial (1) si menciona una."}, {"t": "L", "q": "Según la maestra Rosa, ¿qué hacen las abejas?", "k": "Llevan el polen de una flor a otra y así las flores se convierten en frutos. Parcial (1) si solo dice que llevan polen."}, {"t": "I", "q": "Aunque los niños cuidaban el huerto, ¿por qué daba pocos frutos?", "k": "Porque casi no había abejas que llevaran el polen de flor en flor. Parcial (1) si solo dice “faltaban abejas” sin explicar por qué importa."}, {"t": "I", "q": "¿Por qué Mateo dijo “Creo que me equivoqué”?", "k": "Porque dudaba de la idea de Lucía y vio que sí funcionó. Parcial (1) si solo menciona una de las dos ideas."}, {"t": "C", "q": "¿Crees que la idea de Lucía fue buena? Explica tu respuesta.", "k": "Respuesta abierta. Correcta (2) si da una razón apoyada en el texto (atrajo abejas, el huerto se llenó de flores). Parcial (1) si solo dice “sí” o “porque sí”."}, {"t": "C", "q": "¿Qué otra cosa podría hacer la escuela para proteger a las abejas?", "k": "Respuesta abierta y razonable (no usar insecticidas, poner agua, sembrar más flores, hacer una campaña). Parcial (1) si es vaga."}], "words": 155}, {"title": "Los guardianes de la quebrada", "nivel": "Nivel intermedio", "paras": ["En el caserío de Yanacancha, las familias dependían de una quebrada que bajaba desde la cabecera del cerro. Durante generaciones, su agua había alcanzado para regar las chacras y para beber. Sin embargo, en los últimos años el caudal disminuía tanto que, en época de sequía, apenas quedaba un hilo de agua entre las piedras.", "Don Gerardo, el presidente de la comunidad, convocó a una asamblea. Algunos vecinos culparon a la falta de lluvias; otros, a los ingenieros de la ciudad. Pero la profesora Elena, que había llevado a sus alumnos a recorrer la cabecera, mostró unas fotografías: el pajonal donde nacía la quebrada estaba pisoteado por el ganado y gran parte de la vegetación había desaparecido. “El pajonal funciona como una esponja —explicó—: guarda el agua de las lluvias y la va soltando poco a poco”.", "Tras debatir durante horas, la comunidad acordó cercar el pajonal, sembrar plantas nativas y turnar a los pastores para llevar el ganado a otras zonas. Algunos protestaron porque tendrían que caminar más, pero aceptaron cuando entendieron que el sacrificio de hoy asegura el agua de mañana.", "Al cabo de dos años, la quebrada ya no se secaba en verano. Los estudiantes de la escuela, convertidos en “guardianes de la quebrada”, vigilan cada mes el cercado y miden el caudal. Don Gerardo suele repetirles: “El agua no se acaba cuando falta la lluvia, sino cuando dejamos de cuidar el lugar donde nace”."], "q": [{"t": "L", "q": "¿Qué problema tenía la quebrada de Yanacancha en los últimos años?", "k": "Su caudal disminuía; en época de sequía apenas quedaba un hilo de agua. Parcial (1) si solo dice que “se estaba secando” sin precisar cuándo o cómo."}, {"t": "L", "q": "¿Qué acordó hacer la comunidad para recuperar el agua?", "k": "Cercar el pajonal, sembrar plantas nativas y turnar a los pastores para llevar el ganado a otras zonas. Correcta (2) si menciona al menos dos; parcial (1) si menciona una."}, {"t": "I", "q": "¿Por qué la profesora Elena comparó el pajonal con una esponja?", "k": "Porque el pajonal guarda el agua de lluvia y la va soltando poco a poco, como una esponja. Parcial (1) si solo dice que “guarda agua”."}, {"t": "I", "q": "¿Por qué algunos vecinos protestaron y luego aceptaron las medidas?", "k": "Protestaron porque tendrían que caminar más; aceptaron al entender que el sacrificio actual asegura el agua del futuro. Parcial (1) si explica solo una de las dos partes."}, {"t": "C", "q": "¿Qué opinas de la frase de don Gerardo: “El agua no se acaba cuando falta la lluvia, sino cuando dejamos de cuidar el lugar donde nace”? Explica.", "k": "Respuesta abierta. Correcta (2) si interpreta que cuidar la fuente importa más que la lluvia y lo justifica con el texto o con un ejemplo. Parcial (1) si solo dice “estoy de acuerdo”."}, {"t": "C", "q": "¿Fue buena idea que los estudiantes se convirtieran en “guardianes de la quebrada”? ¿Por qué?", "k": "Respuesta abierta. Correcta (2) si da una razón válida (aprenden a cuidar el agua, vigilan el cercado, continúa el cuidado en el futuro). Parcial (1) si la razón es vaga."}], "words": 238}], "niv": [{"c": "AD", "d": "Logro destacado", "min": 85}, {"c": "A", "d": "Logro esperado", "min": 65}, {"c": "B", "d": "En proceso", "min": 50}, {"c": "C", "d": "En inicio", "min": 0}]};
@@ -198,7 +192,7 @@ go('est');
 $('hsch').textContent=DATA.school+' · Docente: '+DATA.docente;
 $('comp').textContent='Competencia: '+DATA.comp+'.';
 $('fecha').value=new Date().toLocaleDateString('es-PE');
-try{if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js?v=8').catch(()=>{});}catch(e){}$('gr').value=CFG.grade;
+try{if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js?v=9').catch(()=>{});}catch(e){}$('gr').value=CFG.grade;
 let STUDENTS=[];
 function fillSel(){const cur=$('sel').value;$('sel').innerHTML='<option value="">— Selecciona al estudiante —</option>'+STUDENTS.map(s=>'<option>'+esc(s)+'</option>').join('')+'<option value="__otro">Otro (escribir el nombre)</option>';$('sel').value=cur;}
 function cargarNomina(){STUDENTS=$('nom').value.split('\n').map(x=>x.replace(/^\s*\d+[\.\)\-\s]+/,'').trim()).filter(Boolean);
@@ -268,7 +262,7 @@ function renderViewer(n){
   if(!f.pdf)drawImg(n);
 }
 /* Hojas para escribir a mano */
-const hdrH=(n,nm)=>'<div class="hh"><img src="icono-192.png?v=8" alt="" style="height:15mm;float:left;margin-right:6px" onerror="this.remove()"><b>'+esc(DATA.school)+'</b><br>Comunicación · Lectura '+(n+1)+' de 2</div><div class="hn">Nombre: <span style="flex:2.6">'+esc(nm||'')+'</span> Grado: <span style="flex:.4">'+esc($('gr').value)+'</span> Fecha: <span style="flex:.5">'+esc($('fecha').value)+'</span> Puntaje: <span style="flex:.3">/ 12</span></div>';
+const hdrH=(n,nm)=>'<div class="hh"><img src="icono-192.png?v=9" alt="" style="height:15mm;float:left;margin-right:6px" onerror="this.remove()"><b>'+esc(DATA.school)+'</b><br>Comunicación · Lectura '+(n+1)+' de 2</div><div class="hn">Nombre: <span style="flex:2.6">'+esc(nm||'')+'</span> Grado: <span style="flex:.4">'+esc($('gr').value)+'</span> Fecha: <span style="flex:.5">'+esc($('fecha').value)+'</span> Puntaje: <span style="flex:.3">/ 12</span></div>';
 const pagTexto=(n,nm)=>{const r=RD[n];return '<div class="hoja">'+hdrH(n,nm)+'<p style="font-size:10pt"><b>Competencia:</b> '+esc(DATA.comp)+'. Lee el texto con atención y luego responde en la hoja siguiente.</p><h2>'+esc(r.title)+'</h2>'+r.paras.map(p=>'<p>'+esc(p)+'</p>').join('')+'</div>';};
 const pagPreg=(n,nm)=>{const r=RD[n];return '<div class="hoja">'+hdrH(n,nm)+'<h2 style="font-size:14pt">Preguntas · '+esc(r.title)+'</h2>'+
   r.q.map((q,i)=>'<div class="hq">'+(i+1)+'. '+esc(q.q)+'</div>'+'<div class="ln"></div>'.repeat(q.t==='L'?2:3)).join('')+'</div>';};
@@ -400,16 +394,6 @@ function vozStart(n){
     const a=alignLec(R,S),el=Math.round((Date.now()-t0)/1000);$('le'+n).value=a.leidas;$('er'+n).value=a.Sb+a.Dl;calcF(n);
     st.textContent='Estimado ('+el+' s): '+a.M+' palabras correctas de '+a.leidas+'; omisiones '+a.Dl+', cambiadas '+a.Sb+', de más '+a.In+'. El reconocimiento corrige errores sin avisar y falla con voces infantiles: escucha tú y ajusta los números.';};
   rec.start();
-}
-async function diagnostico(){
-  const out=['Versión de la app: 8','Dirección: '+location.href],base=location.href.replace(/[^\/]*$/,'');
-  const chk=async f=>{try{const r=await fetch(base+f+'?t='+Date.now(),{cache:'no-store'});return f+': '+(r.ok?'OK':'NO ENCONTRADO ('+r.status+')');}catch(e){return f+': error de red';}};
-  for(const f of ['manifest.json','icono-192.png','icono-512.png','sw.js','config.js','nomina.js'])out.push(await chk(f));
-  try{const m=await (await fetch(base+'manifest.json?t='+Date.now(),{cache:'no-store'})).json();out.push('Manifest nombre: '+m.name+' | iconos: '+(m.icons||[]).map(i=>i.src).join(', '));}catch(e){out.push('Manifest: no se pudo leer');}
-  out.push('Seguro (https): '+(location.protocol==='https:'?'sí':'no'));
-  out.push('Service worker: '+('serviceWorker' in navigator?((await navigator.serviceWorker.getRegistrations()).length?'registrado':'no registrado'):'no compatible'));
-  out.push('Abierta como app instalada: '+(matchMedia('(display-mode: standalone)').matches?'sí':'no'));
-  $('diag').textContent=out.join('\n');
 }
 /* Informe */
 const REC={L:'Practicar la localización de datos explícitos: subrayar quién, qué, cuándo y dónde.',

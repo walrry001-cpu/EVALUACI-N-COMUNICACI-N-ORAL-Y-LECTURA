@@ -1,13 +1,8 @@
-EVALUACIÓN DE LECTURA 5.° "E" · VERSIÓN 8 (archivos sueltos, con diagnóstico de instalación)
+EVALUACIÓN DE LECTURA 5.° "E" · VERSIÓN 9 (sin el botón de diagnóstico)
 
-Sube TODOS estos archivos a la MISMA carpeta (raíz) de GitHub, sin carpetas:
-Evaluacion_Lectura_5E_v8.html, index.html, manifest.json, sw.js, icono-192.png, icono-512.png,
-apple-touch-icon.png, favicon-64.png, config.js, nomina.js (ver aviso de privacidad), Evaluacion_Comprension_5E_v8.pdf (opcional).
+Para actualizar tu aplicación ya instalada basta reemplazar en GitHub el archivo:
+  Evaluacion_Lectura_5E_v8.html   (mismo nombre, para que la app instalada siga funcionando; no hace falta reinstalar)
+El resto de archivos no cambia (puedes dejarlos como están). Si lo prefieres, sube todo el contenido del ZIP reemplazando los existentes.
 
-Después:
-1. Espera 1-2 minutos y abre ESTE enlace: https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/Evaluacion_Lectura_5E_v8.html
-2. Abajo de la pantalla "Estudiante" debe decir "Versión 8". Si no lo dice, estás viendo una versión vieja.
-3. Pulsa "Revisar archivos": cada línea debe decir OK. Lo que diga NO ENCONTRADO es lo que falta subir.
-4. Borra el acceso directo viejo (la "G" gris) y en Chrome ⋮ -> "Instalar app".
-
-Si nomina.js está en un repositorio PÚBLICO, los nombres de los menores son visibles para cualquiera.
+Después de subirlo: espera 1-2 minutos, cierra la app por completo y ábrela de nuevo. Abajo de la pantalla "Estudiante" debe decir "Versión 9".
+Si todavía ve la versión anterior: ábrela una vez desde Chrome (no desde el icono) y recarga la página.
